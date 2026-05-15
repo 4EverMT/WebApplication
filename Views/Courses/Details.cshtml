@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="DetailsListPanel">
+
+</div>
+
+<div id="InscriptionsListPanel">
+
+</div>
+
+@section Scripts {
+    <script>
+
+        let detailsAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "DetailsListPanel",
+                "/Courses/GetDetails",
+                5,
+                detailsListPostRefresh);
+
+
+        let inscriptionsAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "InscriptionsListPanel",
+                "/Courses/GetInscriptions",
+                5,
+                inscriptionsListPostRefresh);
+
+
+        function detailsListPostRefresh() {
+
+        }
+
+        function inscriptionsListPostRefresh() {
+            RestoreDetailsState();
+        }
+
+    </script>
+
+
+}

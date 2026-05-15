@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Models.Registration>
+
+@{
+    ViewBag.Title = "GetInscriptions";
+    var yearsList = ((List<int>)Session["StudentsInscriptionsYearsList"]).OrderByDescending(i => i);
+}
+
+
+@foreach (int year in yearsList)
+{
+    var inscriptions = Model.Where(s => s.Year == year);
+    if (inscriptions.Count() > 0)
+    {
+        <details id="registration_details_@year" open>
+            <summary>
+               @year
+            </summary>
+            @foreach (var item in inscriptions)
+            {
+                <div class="StudentListLayout">
+                    <a href="@Url.Action("Details", "Courses", new { id = item.CourseId })">
+                        <div style="display:flex">
+                            <span>@item.Course.Caption</span>
+                            
+                        </div>
+                    </a>
+                </div>
+            }
+        </details>
+    }
+}

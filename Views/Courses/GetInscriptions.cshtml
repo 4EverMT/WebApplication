@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Models.Registration>
+
+@{
+    ViewBag.Title = "GetInscriptions";
+    var yearsList = ((List<int>)Session["CoursesInscriptionsYearsList"]).OrderByDescending(i => i);
+}
+
+
+@foreach (int year in yearsList)
+{
+    var inscriptions = Model.Where(s => s.Year == year);
+    var allocation = DAL.DB.Allocations.ToList().Where(c => c.CourseId == (int)Session["CurrentCourseId"] && c.Year == year).FirstOrDefault();
+    if (inscriptions.Count() > 0)
+    {
+        <details id="registration_details_@year" open>
+            <summary>
+                Cohorte @year
+                @if (allocation != null)
+                {
+                    <a href="@Url.Action("Details", "Teachers", new { id = allocation.TeacherId})"> - @allocation.Teacher.FullName</a>
+                }
+            </summary>
+            @foreach (var item in inscriptions)
+                        {
+                <div class="StudentListLayout">
+                    <a href="@Url.Action("Details", "Students", new { id = item.StudentId })">
+                        <div style="display:flex">
+                            <span class="studentCode">@item.Student.Code  </span>
+                            
+                            <span class="studentName">@item.Student.FullName</span>
+
+                        </div>
+                    </a>
+                </div>
+            }
+        </details>
+    }
+}

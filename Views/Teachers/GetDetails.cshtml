@@ -1,0 +1,14 @@
+﻿@model Models.Teacher
+
+
+<details id="teacherDetails" open>
+    <summary>
+        @Model.FullName
+    </summary>
+    <div>@Model.Code</div>
+    <div>@Model.Phone</div>
+    <div>@Model.Email</div>
+    <div>@Helper.When(Model.StartDate)</div>
+    <div>@Model.Seniority ans d'ancienneté</div>
+    <img class="UserSmallAvatar" src="@(string.IsNullOrEmpty(Model.Avatar) ? "/App_Assets/teachers/no_avatar.png" : Model.Avatar)" />
+</details>

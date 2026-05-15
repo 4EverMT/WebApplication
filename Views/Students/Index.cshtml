@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="StudentListPanel">
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        let listAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "StudentListPanel",
+                "/Students/GetStudents",
+                10,
+                studentsListPostRefresh);
+
+
+        function studentsListPostRefresh() {
+            let search = "@Session["SearchString"]";
+            if (search != "") {
+                $(".studentName").each(function () {
+                    let text = $(this).html();
+                    let highlighted = text.replace(new RegExp(search, "gi"), match => `<mark>${match}</mark>`);
+                    $(this).html(highlighted);
+                });
+            }
+        }
+
+    </script>
+
+
+}

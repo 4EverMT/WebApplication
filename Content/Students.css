@@ -1,0 +1,31 @@
+﻿.StudentListLayout {
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 30px;
+    align-items: center;
+    font-size: larger;
+    cursor: pointer;
+    padding-left: 6px;
+    border-radius: 6px;
+    font-family: 'Times New Roman';
+    
+}
+    .StudentListLayout a {
+        text-decoration: none;
+        color:black;
+    }
+
+    .StudentListLayout:hover {
+        background-color: azure;
+    }
+
+    .StudentListLayout .icon {
+        display: none !important;
+    }
+
+    .StudentListLayout:hover .icon {
+        display: block !important;
+    }
+    .studentCode {
+        color:blue;
+    }

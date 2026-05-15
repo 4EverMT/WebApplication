@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken() <!-- Injection de jeton anti contrefaçon de formulaire -->
+
+    <details id="courseInfo" open>
+        <summary>Informations</summary>
+        <fieldset>
+            <legend>Session</legend>
+            <input id="Session"
+                   name="Session"
+                   class="form-control"
+                   type="number"
+                   min="1"
+                   max="6"
+                   placeholder="Session entre 1 et 6"
+                   required
+                   RequireMessage="Veuillez entrer une Session entre 1 et 6" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Code</legend>
+            <input class="form-control"
+                   name="Code"
+                   id="Code"
+                   placeholder="Code"
+                   style="margin-bottom:8px;"
+                   required
+                   RequireMessage="Veuillez entrer un code" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Titre du cours</legend>
+            <input class="form-control"
+                   name="Title"
+                   id="Title"
+                   placeholder="Titre du cours"
+                   style="margin-bottom:8px;"
+                   required
+                   RequireMessage="Veuillez entrer un titre" />
+        </fieldset>
+
+
+        <input id="submit" type="submit" value="Enregistrer" class="btn btn-primary" style="display:none">
+    </details>
+
+
+}
+

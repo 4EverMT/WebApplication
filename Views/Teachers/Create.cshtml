@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken() <!-- Injection de jeton anti contrefaçon de formulaire -->
+
+    <details id="teacherInfo" open>
+        <summary>Informations</summary>
+        <div class="profil-form">
+        <fieldset>
+            <legend>Prénom</legend>
+            <input id="FirstName"
+                   name="FirstName"
+                   class="form-control"
+                   placeholder="Prénom"
+                   required
+                   RequireMessage="Veuillez entrer un Prénom" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Nom</legend>
+            <input class="form-control"
+                   name="LastName"
+                   id="LastName"
+                   placeholder="Nom"
+                   style="margin-bottom:8px;"
+                   required
+                   RequireMessage="Veuillez entrer un nom" />
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Date d'embauche</legend>
+            <input class="form-control"
+                   name="StartDate"
+                   type="date"
+                   id="StartDate"
+                   placeholder="Date d'embauche"
+                   style="margin-bottom:8px;"
+                   required
+                   RequireMessage="Veuillez entrer une date d'embauche" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Téléphone</legend>
+            <input class="form-control"
+                   name="Phone"
+                   id="Phone"
+                   placeholder="Téléphone"
+                   style="margin-bottom:8px;"
+                   required
+                   RequireMessage="Veuillez entrer un téléphone" />
+        </fieldset>
+        <fieldset>
+            <legend>Avatar</legend>
+            @Helper.ImageUploader("Avatar", "", "Cliquez ou glissez une photo") 
+        </fieldset>
+            </div>
+        <input id="submit" type="submit" value="Enregistrer" class="btn btn-primary" style="display:none">
+    </details>
+}
+

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\levvi\\\\web_asp.bet\\\\WebApplicationAuth-master\\\\WebApplicationAuth-master\" -Directory | ForEach-Object { $_.FullName })"
+    ]
+  }
+}

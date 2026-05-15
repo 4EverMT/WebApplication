@@ -1,0 +1,37 @@
+﻿.TeacherListLayout {
+    height: 44px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+    .TeacherListLayout:hover {
+        background-color: azure;
+    }
+
+    .TeacherListLayout a {
+        display: grid;
+        grid-template-columns: 50px 150px auto;
+        align-items: center;
+        height: 44px;
+        text-decoration: none;
+        color: black;
+        padding-left: 6px;
+    }
+
+    .TeacherListLayout img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+.teacherCode {
+    color: blue;
+    font-family: Consolas;
+    font-size: 16px;
+}
+
+.teacherName {
+    font-family: 'Times New Roman';
+    font-size: larger;
+}

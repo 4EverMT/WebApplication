@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Models.Allocation>
+
+@{
+    ViewBag.Title = "GetAllocations";
+    var yearsList = ((List<int>)Session["TeachersAllocationsYearsList"]).OrderByDescending(i => i);
+}
+
+@foreach (int year in yearsList)
+{
+    var allocations = Model.Where(s => s.Year == year);
+    if (allocations.Count() > 0)
+    {
+        <details id="teacher_allocation_details_@year" open>
+            <summary>
+                @year
+            </summary>
+            @foreach (var item in allocations)
+            {
+                <div class="TeacherListLayout">
+                    <a href="@Url.Action("Details", "Courses", new { id = item.CourseId })">
+                        <div style="display:flex">
+                            <span>@item.Course.Caption</span>
+
+                        </div>
+                    </a>
+                </div>
+            }
+        </details>
+    }
+}

@@ -1,0 +1,15 @@
+﻿
+@model Models.Student
+
+
+
+
+<details id="studentDetails" open>
+    <summary>
+        @Model.FullName
+    </summary>
+    <div>@Model.Code</div>
+    <div>@Model.Phone</div>
+    <div>@Model.Email</div>
+    <div>@Helper.When(Model.BirthDate)</div>
+</details>

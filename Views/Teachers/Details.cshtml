@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="TeacherDetailsPanel">
+
+</div>
+
+<div id="TeacherAllocationsPanel">
+
+</div>
+
+@section Scripts {
+    <script>let teacherDetailsAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "TeacherDetailsPanel",
+                "/Teachers/GetDetails",
+                10,
+                teacherDetailsPostRefresh);
+
+
+        let teacherAllocationsAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "TeacherAllocationsPanel",
+                "/Teachers/GetAllocations",
+                10,
+                teacherAllocationsPostRefresh);
+
+
+        function teacherDetailsPostRefresh() {
+
+        }
+
+        function teacherAllocationsPostRefresh() {
+
+        }</script>
+
+
+}

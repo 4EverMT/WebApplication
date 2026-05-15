@@ -1,0 +1,20 @@
+﻿@using (Html.BeginForm())
+{
+    <details open>
+        <summary>Choisissez l'année et la session</summary>
+
+        <label>Année</label>
+        <input type="number" name="year" class="form-control" value="@ViewBag.Year" />
+
+        <label>Session</label><br />
+        <input type="radio" name="session" value="Automne"
+               @(ViewBag.Session.ToString().Contains("Automne") ? "checked" : "") /> Automne<br />
+        <input type="radio" name="session" value="Hiver"
+               @(ViewBag.Session.ToString().Contains("Hiver") ? "checked" : "") /> Hiver
+
+        <br />
+        <b>Session courante : @ViewBag.Session</b>
+    </details>
+
+    <input id="submit" type="submit" style="display:none" />
+}

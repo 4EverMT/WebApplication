@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="CourseListPanel">
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        let listAutoRefreshPanel =
+            new AutoRefreshedPanel(
+                "CourseListPanel",
+                "/Courses/GetCourses",
+                5,
+                coursesListPostRefresh);
+
+
+        function coursesListPostRefresh() {
+            RestoreDetailsState();
+        }
+
+    </script>
+
+
+}

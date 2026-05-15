@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken() <!-- Injection de jeton anti contrefaçon de formulaire -->
+
+    <details id="studentInfo" open>
+        <summary>Informations</summary>
+        <div>
+            <fieldset>
+                <legend>Prénom</legend>
+                <input id="FirstName"
+                       name="FirstName"
+                       class="form-control"
+                       placeholder="Prénom"
+                       required
+                       RequireMessage="Veuillez entrer un Prénom" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Nom</legend>
+                <input class="form-control"
+                       name="LastName"
+                       id="LastName"
+                       placeholder="Nom"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer un nom" />
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Date de naissance</legend>
+                <input class="form-control"
+                       name="BirthDate"
+                       type="date"
+                       id="BirthDate"
+                       placeholder="Date de naissance"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer une date de naissance" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Courriel</legend>
+                <input type="email" class="form-control"
+                       name="Email"
+                       id="Email"
+                       placeholder="Courriel"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer un courriel" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Téléphone</legend>
+                <input class="form-control"
+                       name="Phone"
+                       id="Phone"
+                       placeholder="Téléphone"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer un téléphone" />
+            </fieldset>
+
+
+            <input id="submit" type="submit" value="Enregistrer" class="btn btn-primary" style="display:none">
+        </div>
+    </details>
+
+    
+}
+

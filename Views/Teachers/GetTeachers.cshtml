@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Models.Teacher>
+
+@foreach (var item in Model)
+{
+    <div class="TeacherListLayout">
+        <a href="@Url.Action("Details", new { id = item.Id })">
+            <img class="UserSmallAvatar" src="@(string.IsNullOrEmpty(item.Avatar) ? "/App_Assets/teachers/no_avatar.png" : item.Avatar)" />
+            <span class="teacherCode">@item.Code</span>
+            <div class="teacherName">
+                @item.LastName @item.FirstName
+            </div>
+        </a>
+    </div>
+}

@@ -1,0 +1,78 @@
+﻿@model Models.Teacher
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken() <!-- Injection de jeton anti contrefaçon de formulaire -->
+
+    <details id="teacherInfo" open>
+        <summary> Informations - [@Model.Code]</summary>
+        <div class="profil-form">
+            <fieldset>
+                <legend>Prénom</legend>
+                <input id="FirstName"
+                       name="FirstName"
+                       class="form-control"
+                       placeholder="Prénom"
+                       required
+                       RequireMessage="Veuillez entrer un Prénom"
+                       value="@Model.FirstName" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Nom</legend>
+                <input class="form-control"
+                       name="LastName"
+                       id="LastName"
+                       placeholder="Nom"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer un nom"
+                       value="@Model.LastName" />
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Date d'embauche</legend>
+                <input class="form-control"
+                       name="StartDate"
+                       type="date"
+                       id="StartDate"
+                       placeholder="Date d'embauche"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer une date d'embauche"
+                       value="@Model.StartDate.ToString("yyyy-MM-dd")" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Téléphone</legend>
+                <input class="form-control"
+                       name="Phone"
+                       id="Phone"
+                       placeholder="Téléphone"
+                       style="margin-bottom:8px;"
+                       required
+                       RequireMessage="Veuillez entrer un téléphone"
+                       value="@Model.Phone" />
+            </fieldset>
+            <fieldset>
+                <legend>Avatar</legend>
+                @Helper.ImageUploader("Avatar", Model.Avatar, "Cliquez ou glissez une photo")
+            </fieldset>
+
+            <input id="submit" type="submit" value="Enregistrer" class="btn btn-primary" style="display:none">
+        </div>
+    </details>
+
+    <details id="teacherAllocations">
+        <summary>Allocation: @Models.NextSession.ShortCaption</summary>
+        @Helper.SelectionLists("selectedCoursesId", (SelectList)ViewBag.Allocations, (SelectList)ViewBag.Courses)
+    </details>
+
+}
+
